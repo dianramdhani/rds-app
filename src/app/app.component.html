@@ -6,13 +6,29 @@
           <ion-list-header>RDS</ion-list-header>
           <ion-note>Roughness Detection System</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <!-- <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
               detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+          </ion-menu-toggle> -->
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" lines="none" detail="false" routerLink="/folder/Inbox"
+              routerLinkActive="selected">
+              <ion-icon slot="start" ios="mail-outline" md="mail-sharp"></ion-icon>
+              <ion-label>Inbox</ion-label>
+            </ion-item>
           </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" lines="none" detail="false" routerLink="/testing"
+              routerLinkActive="selected">
+              <ion-icon slot="start" ios="mail-outline" md="mail-sharp"></ion-icon>
+              <ion-label>Testing</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>
