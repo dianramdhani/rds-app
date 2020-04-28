@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { SharedModule } from '@shared/shared.module';
-import { TestingRoutingModule } from './testing-routing.module';
-import { TestingComponent } from './pages/testing/testing.component';
+import { IonicModule } from '@ionic/angular';
 
+import { TestingPageRoutingModule } from './testing-routing.module';
+
+import { TestingPage } from './testing.page';
 
 @NgModule({
-  declarations: [TestingComponent],
   imports: [
     CommonModule,
-    TestingRoutingModule,
-    SharedModule
-  ]
+    FormsModule,
+    IonicModule,
+    TestingPageRoutingModule
+  ],
+  declarations: [TestingPage]
 })
-export class TestingModule { }
+export class TestingPageModule {}
