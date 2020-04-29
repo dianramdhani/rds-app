@@ -15,8 +15,35 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">ini testing</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
-        Components</a></p>
+    <h1>Scan Device</h1>
+    <p>
+      <button (click)="scan()">Scan</button>
+    </p>
+    <p>
+      {{ blDevices }}
+    </p>
+    <p *ngIf="loadingScan">
+      loading...
+    </p>
+    <table border="1" *ngIf="blDevices.length">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>RSSID</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of blDevices">
+          <td>{{ item.name }}</td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.rssid }}</td>
+          <td>
+            <button (click)="connect(item)">Connect</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </ion-content>

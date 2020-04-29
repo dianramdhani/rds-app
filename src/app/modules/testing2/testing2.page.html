@@ -7,16 +7,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Ini Testing</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <button ion-button full color="primary" (click)="listPairedDevices()">
+    <ion-icon name="refresh"></ion-icon>&nbsp;Refresh Bluetooth Devices
+  </button>
+  <ion-item>
+    <ion-label>Bluetooth</ion-label>
+    <ion-select placeholder="Select bluetooth" (ionChange)="blSelected($event)">
+      <ion-select-option *ngFor="let i of pairedList;let j=index" [value]="j">{{i.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button full color="primary" *ngIf="listToggle" (click)="selectDevice()">
+    <ion-icon name="bluetooth"></ion-icon>&nbsp;Connect Bluetooth Devices
+  </button>
 
-  <div id="container">
-    <strong class="capitalize">ini testing</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
-        Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item>
+      <button ion-button small color="success" (click)="btnOnClicked()">ON</button> Turn on all LED on Maker UNO
+    </ion-item>
+    <ion-item>
+      <button ion-button small color="danger" (click)="btnOffClicked()">OFF</button> Turn off all LED on Maker UNO
+    </ion-item>
+  </ion-list>
+
 </ion-content>
